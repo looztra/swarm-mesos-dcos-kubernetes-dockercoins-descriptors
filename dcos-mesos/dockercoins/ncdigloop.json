@@ -1,0 +1,29 @@
+{
+  "id": "ncdigloop",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "looztra/alpine-ncdigloop:1",
+      "network": "BRIDGE",
+      "forcePullImage": true
+    }
+  },
+  "env": {
+    "NCDIG_TARGETS": "redis.marathon.mesos:6379,redis.marathon.mesos:26902,rng.marathon.mesos:80,marathon-lb-internal.marathon.mesos:10000,marathon-lb-internal.marathon.mesos:10001,marathon-lb-internal.marathon.mesos:10002,marathon-lb-internal.marathon.mesos:10003,marathon-lb-internal.marathon.mesos:10004"
+  },
+  "instances": 1,
+  "cpus": 0.25,
+  "mem": 100,
+  "healthChecks": [
+    {
+      "protocol": "COMMAND",
+      "command": {
+        "value": "/bin/true"
+      },
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ]
+}

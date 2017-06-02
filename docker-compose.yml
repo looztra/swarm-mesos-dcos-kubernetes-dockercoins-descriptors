@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  rng:
+    image: looztra/dockercoinsextract_rng:1.0
+
+  hasher:
+    image: looztra/dockercoinsextract_hasher:1.0
+
+  webui:
+    image: looztra/dockercoinsextract_webui:1.0
+    ports:
+    - "8000:80"
+
+  redis:
+    image: redis:3-alpine
+
+  worker:
+    image: looztra/dockercoinsextract_worker:1.0

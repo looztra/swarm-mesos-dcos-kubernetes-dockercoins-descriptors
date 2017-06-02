@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rng
+  namespace: dockercoins
+  labels:
+    app: rng
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: rng
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: rng
+  namespace: dockercoins
+spec:
+  template:
+    metadata:
+      labels:
+        app: rng
+    spec:
+      nodeSelector:
+        app: rng-node
+      containers:
+      - name: rng
+        image: looztra/dockercoinsextract_rng:1.0
+        ports:
+        - containerPort: 80

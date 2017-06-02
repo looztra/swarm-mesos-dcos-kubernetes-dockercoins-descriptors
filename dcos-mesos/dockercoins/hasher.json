@@ -1,0 +1,35 @@
+{
+  "id": "hasher",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "looztra/dockercoinsextract_hasher:1.0",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "containerPort": 80,
+          "servicePort": 10003
+        }
+      ],
+      "forcePullImage": true
+    }
+  },
+  "instances": 3,
+  "cpus": 0.5,
+  "mem": 250,
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "path": "/",
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 2,
+      "maxConsecutiveFailures": 10
+    }
+  ],
+  "labels": {
+    "HAPROXY_GROUP": "internal"
+  }
+}

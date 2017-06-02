@@ -1,0 +1,34 @@
+{
+  "id": "redis",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "redis:3-alpine",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "containerPort": 6379,
+          "servicePort": 10001
+        }
+      ],
+      "forcePullImage": true
+    }
+  },
+  "instances": 1,
+  "cpus": 0.5,
+  "mem": 500,
+  "healthChecks": [
+    {
+      "portIndex": 0,
+      "protocol": "TCP",
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 0
+    }
+  ],
+  "labels": {
+    "HAPROXY_GROUP": "internal"
+  }
+}
