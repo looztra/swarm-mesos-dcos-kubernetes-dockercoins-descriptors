@@ -15,7 +15,7 @@
       "forcePullImage": true
     }
   },
-  "instances": 3,
+  "instances": 1,
   "cpus": 0.5,
   "mem": 250,
   "healthChecks": [

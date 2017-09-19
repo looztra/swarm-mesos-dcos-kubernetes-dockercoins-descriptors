@@ -3,9 +3,17 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "looztra/dockercoinsextract_worker:mesos",
+      "image": "looztra/dockercoins_worker:1.2",
       "forcePullImage": true
     }
+  },
+  "env": {
+    "DOCKERCOINS_REDIS_HOST": "marathon-lb-internal.marathon.mesos",
+    "DOCKERCOINS_REDIS_PORT": "10001",
+    "DOCKERCOINS_RNG_HOST": "http://marathon-lb-internal.marathon.mesos",
+    "DOCKERCOINS_RNG_PORT": "10002",
+    "DOCKERCOINS_HASHER_HOST": "http://marathon-lb-internal.marathon.mesos",
+    "DOCKERCOINS_HASHER_PORT": "10003"
   },
   "instances": 1,
   "cpus": 0.5,

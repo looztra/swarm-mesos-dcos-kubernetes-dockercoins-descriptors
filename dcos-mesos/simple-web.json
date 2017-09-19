@@ -15,6 +15,9 @@
       "forcePullImage": true
     }
   },
+  "env": {
+    "DUMMY_ENV_VAR": "ZENIKA RULEZ"
+  },
   "instances": 3,
   "cpus": 0.1,
   "mem": 65,
@@ -31,7 +34,7 @@
   ],
   "labels": {
     "HAPROXY_GROUP": "external",
-    "HAPROXY_0_VHOST": "znk-dcos-sgagents.southeastasia.cloudapp.azure.com",
+    "HAPROXY_0_VHOST": "cfk-midiconf-dcosagents.westeurope.cloudapp.azure.com",
     "HAPROXY_0_MODE": "http"
   }
 }
