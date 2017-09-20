@@ -1,0 +1,36 @@
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "SwarmMode"
+    },
+    "masterProfile": {
+      "count": 3,
+      "dnsPrefix": "",
+      "vmSize": "Standard_D2_v2"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "agentpublic",
+        "count": 3,
+        "vmSize": "Standard_D2_v2",
+        "dnsPrefix": "",
+        "ports": [
+          80,
+          443,
+          8080
+        ]
+      }
+    ],
+    "linuxProfile": {
+      "adminUsername": "azureuser",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYAvpqhIfYzuG/3oS5AYiRFVwSCfqmXqgGqIj9hY8zGvp3nxL8yTPZXRLqzIJ/QzrO0w2LNMHiR15vk0Rw5F+GpXclWTHW5AQIdwFyE31hSxfqavqcb/yy258QO0GqeKYPxcvvl5aVHzJ3iZzKr0XkdlKp5QHnyolw2PezpPis461AohouBKGxyOB3C4Iq2LChdCTZ+8d6PHQj1pQo+VZR/X2gUBGoug64vpbHiCV89QRW2K7om4FdfsyMENUtrhrQ53O3gkkElVqarNvllFL0RaavJVNPQV+d8idLUn4xeE2fVeBju7Vb2Zg56+lZwaR+/UBMzfN56LR4zZBQQCk7rj1fpKSJgFTGVRJbitl7Xmh6v52H7fr+YCO0GdiKpTKFpasc2ZGCrax1ILp4gNawlaSX7cdXJpYkyEv88H0pe4iDBl46qiKRirvj7gCVz6fI/U5sO9Nn0rhrKvcylLyzKC55PxxAv7RzezH18TnRapZ5udGMtAfUPxnO+8YoKzqAbOLkYGtkt1buUrLHH1oCAe49Jf/QdhNvMKTPdksoeWaOUBf4+PgX/WIKDWf/0idAWlI4zAQij2xYm3locFnYiBzzwFf7V4ihOgIhMMuao1IyAnex1EaXNNkX14fOAZBNxevauBwPPHzFtamVcrk1fBk8MtSS/cgXqY53V25zDQ== zenika-azure-common"
+          }
+        ]
+      }
+    }
+  }
+}
